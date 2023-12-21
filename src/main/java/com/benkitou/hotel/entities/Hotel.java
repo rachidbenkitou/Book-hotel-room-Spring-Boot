@@ -15,12 +15,12 @@ import java.io.Serializable;
 public class Hotel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private String address;
     private String description;
     @Column(name = "CITY_ID")
-    private long cityId;
+    private Long cityId;
     @ManyToOne
     @JoinColumn(name = "CITY_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
