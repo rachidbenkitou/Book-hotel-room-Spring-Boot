@@ -23,4 +23,8 @@ public interface HotelRepository extends JpaRepository<Hotel, Long> {
             @Param("address") String address,
             @Param("cityId") Long cityId
     );
+
+    boolean existsHotelsByName(String name);
+
+    boolean existsHotelById(Long id);
 }

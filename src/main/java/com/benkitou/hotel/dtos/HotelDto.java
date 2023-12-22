@@ -1,10 +1,12 @@
 package com.benkitou.hotel.dtos;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data
-public class HotelDto {
-    private long id;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+ public class HotelDto {
+    private Long id;
     private String name;
     private String address;
     private String description;
