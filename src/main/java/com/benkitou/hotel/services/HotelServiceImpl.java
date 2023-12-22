@@ -7,7 +7,7 @@ import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.entities.Hotel;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
-import com.benkitou.hotel.exceptions.HotelServiceException;
+import com.benkitou.hotel.exceptions.EntityServiceException;
 import com.benkitou.hotel.mappers.HotelMapper;
 import com.benkitou.hotel.services.inter.HotelService;
 import jakarta.transaction.Transactional;
@@ -35,7 +35,7 @@ public class HotelServiceImpl implements HotelService {
                     hotelCriteria.getCityId()
             );
         } catch (Exception e) {
-            throw new HotelServiceException("An error occurred while retrieving hotels.", e);
+            throw new EntityServiceException("An error occurred while retrieving hotels.", e);
         }
     }
 
@@ -52,7 +52,7 @@ public class HotelServiceImpl implements HotelService {
                     .findFirst()
                     .orElseThrow(() -> new EntityNotFoundException(String.format("The hotel with the id %d is not found.", id)));
         } catch (Exception e) {
-            throw new HotelServiceException("An error occurred while retrieving hotels.", e);
+            throw new EntityServiceException("An error occurred while retrieving hotel.", e);
         }
 
     }
@@ -63,13 +63,10 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public HotelDto addHotel(HotelDto hotelDto) throws EntityAlreadyExistsException {
-        String hotelName = hotelDto.getName();
         hotelDto.setId(null);
 
         // Check if the hotel with the given name already exists
-        if (isHotelExists(hotelName)) {
-            throw new EntityAlreadyExistsException(String.format("The hotel with name %s already exists.", hotelName));
-        }
+        throwExceptionIfExistsByName(hotelDto.getName());
 
         try {
             // Save the hotel and return the DTO
@@ -77,13 +74,21 @@ public class HotelServiceImpl implements HotelService {
             return hotelMapper.modelToDto(savedHotel);
         } catch (Exception e) {
             // Handle any exceptions during the save process
-            throw new HotelServiceException("An error occurred while storing the hotel.", e);
+            throw new EntityServiceException("An error occurred while storing the hotel.", e);
         }
     }
 
 
+    private void throwExceptionIfExistsByName(String name) throws EntityAlreadyExistsException {
+        if (isHotelExists(name)) {
+            throw new EntityAlreadyExistsException(String.format("The hotel with name %s already exists.", name));
+        }
+    }
+
     @Override
-    public HotelDto updateHotel(Long id, HotelDto hotelDto) throws EntityNotFoundException {
+    public HotelDto updateHotel(Long id, HotelDto hotelDto) throws EntityNotFoundException, EntityAlreadyExistsException {
+        String hotelName = hotelDto.getName();
+
         // Use Optional for clarity
         HotelDto existingHotel = Optional.ofNullable(getHotelById(id))
                 .orElseThrow(() -> new EntityNotFoundException(String.format("Hotel with ID %d not found.", id)));
@@ -93,33 +98,31 @@ public class HotelServiceImpl implements HotelService {
             throw new IllegalArgumentException("The provided ID and DTO ID do not match.");
         }
 
+//        throwExceptionIfExistsByName(hotelDto.getName());
         try {
             // Update the hotel and return the updated DTO
             Hotel updatedHotel = hotelRepository.save(hotelMapper.dtoToModel(hotelDto));
             return hotelMapper.modelToDto(updatedHotel);
         } catch (Exception e) {
             // Handle any exceptions during the update process
-            throw new HotelServiceException("An error occurred while updating the hotel.", e);
+            throw new EntityServiceException("An error occurred while updating the hotel.", e);
         }
     }
 
 
     @Override
     public ResponseDto deleteHotel(Long id) throws EntityNotFoundException {
-        // Check if the hotel with the given ID exists
         if (!hotelRepository.existsHotelById(id)) {
             throw new EntityNotFoundException(String.format("Hotel with ID %d not found.", id));
         }
         try {
-            // Delete the hotel by ID
             hotelRepository.deleteById(id);
             return ResponseDto.builder()
                     .message("Hotel deleted successfully.")
                     .status(HttpStatus.OK.value())
                     .build();
         } catch (Exception e) {
-            // Handle any exceptions during the delete process
-            throw new HotelServiceException("An error occurred while deleting the hotel.", e);
+            throw new EntityServiceException("An error occurred while deleting the hotel.", e);
         }
     }
 

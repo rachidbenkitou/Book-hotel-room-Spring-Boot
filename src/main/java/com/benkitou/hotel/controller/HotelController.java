@@ -46,7 +46,7 @@ public class HotelController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<HotelDto> updateHotelById(@PathVariable(name = "id") Long id, @RequestBody HotelDto hotelDto) throws EntityNotFoundException {
+    public ResponseEntity<HotelDto> updateHotelById(@PathVariable(name = "id") Long id, @RequestBody HotelDto hotelDto) throws EntityNotFoundException, EntityAlreadyExistsException {
         return new ResponseEntity<>(hotelService.updateHotel(id,hotelDto), HttpStatus.OK);
     }
 

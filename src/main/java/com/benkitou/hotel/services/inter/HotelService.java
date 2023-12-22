@@ -12,7 +12,7 @@ public interface HotelService {
     List<HotelDto> getHotels(HotelCriteria hotelCriteria);
     HotelDto getHotelById(Long id) throws EntityNotFoundException;
     HotelDto addHotel(HotelDto hotelDto) throws EntityAlreadyExistsException;
-    HotelDto updateHotel(Long id, HotelDto hotelDto) throws EntityNotFoundException;
+    HotelDto updateHotel(Long id, HotelDto hotelDto) throws EntityNotFoundException, EntityAlreadyExistsException;
     ResponseDto deleteHotel(Long id) throws EntityAlreadyExistsException, EntityNotFoundException;
 
 }
