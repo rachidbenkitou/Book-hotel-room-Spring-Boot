@@ -18,7 +18,6 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-@Slf4j
 public class HotelServiceImpl implements HotelService {
     private final HotelRepository hotelRepository;
     private final HotelMapper hotelMapper;
@@ -33,9 +32,6 @@ public class HotelServiceImpl implements HotelService {
                     hotelCriteria.getCityId()
             );
         } catch (Exception e) {
-            // Log the error if necessary
-            log.error("An error occurred while retrieving hotels.", e);
-            // Throw a custom exception
             throw new HotelServiceException("An error occurred while retrieving hotels.", e);
         }
     }
@@ -49,12 +45,10 @@ public class HotelServiceImpl implements HotelService {
                     .build();
 
             List<HotelDto> hotelDtos = getHotels(hotelCriteria);
-
             return hotelDtos.stream()
                     .findFirst()
                     .orElseThrow(() -> new EntityNotFoundException(String.format("The hotel with the id %d is not found.", id)));
         } catch (Exception e) {
-            log.error(String.format("Error occurred during calling the hotel with the id %d", id), e);
             throw new HotelServiceException("An error occurred while retrieving hotels.", e);
         }
 

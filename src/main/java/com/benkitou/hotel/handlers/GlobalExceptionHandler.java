@@ -6,7 +6,6 @@ import com.benkitou.hotel.utils.FormatDateTime;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,12 +23,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ResponseDto> handleEntityNotFoundException(EntityNotFoundException ex) {
-        ResponseDto errorResponse = new ResponseDto(
-                ex.getMessage(),
-                HttpStatus.NOT_FOUND.value(),
-                FormatDateTime.formatDateTime(LocalDateTime.now()),
-                getRequestPath()
-        );
+        ResponseDto errorResponse = ResponseDto.builder()
+                .message(ex.getMessage())
+                .timestamp(FormatDateTime.formatDateTime(LocalDateTime.now()))
+                .path(getRequestPath())
+                .status(HttpStatus.NOT_FOUND.value())
+                .build();
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
