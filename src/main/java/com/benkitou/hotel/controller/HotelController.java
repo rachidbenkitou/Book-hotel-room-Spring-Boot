@@ -2,6 +2,7 @@ package com.benkitou.hotel.controller;
 
 import com.benkitou.hotel.criteria.HotelCriteria;
 import com.benkitou.hotel.dtos.HotelDto;
+import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.services.inter.HotelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,13 +23,20 @@ public class HotelController {
             @RequestParam(value = "address", required = false) String address,
             @RequestParam(value = "cityId", required = false) Long cityId
     ){
-        HotelCriteria hotelCriteria= HotelCriteria
-                .builder()
+        HotelCriteria hotelCriteria = HotelCriteria.builder()
                 .id(id)
                 .name(name)
                 .address(address)
                 .cityId(cityId)
                 .build();
+
         return new ResponseEntity<>(hotelService.getHotels(hotelCriteria), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<HotelDto> getHotelById(@ PathVariable(name = "id") Long id) throws EntityNotFoundException {
+        return new ResponseEntity<>(hotelService.getHotelById(id), HttpStatus.OK);
+    }
 }
+
+
