@@ -48,7 +48,7 @@ public class ClientController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto> addClient(@PathVariable(name = "id") Long id) throws EntityAlreadyExistsException, EntityNotFoundException {
+    public ResponseEntity<ResponseDto> deleteClient(@PathVariable(name = "id") Long id) throws EntityAlreadyExistsException, EntityNotFoundException {
         return new ResponseEntity<>(clientService.deleteClient(id), HttpStatus.OK);
     }
 

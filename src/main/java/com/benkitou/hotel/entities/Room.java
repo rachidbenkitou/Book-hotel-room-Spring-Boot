@@ -14,10 +14,10 @@ import org.hibernate.annotations.NotFoundAction;
 public class Room  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private int number;
+    private Long id;
+    private Integer number;
     private int description;
-    private double price;
+    private Double price;
 
     @Column(name = "HOTEL_ID")
     private Long hotelId;

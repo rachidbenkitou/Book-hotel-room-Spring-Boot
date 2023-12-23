@@ -5,9 +5,11 @@ import com.benkitou.hotel.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
     @Query("SELECT NEW com.benkitou.hotel.dtos.ClientDto(client.id, client.firstName, client.lastName, client.address, client.phone, client.email) " +
             "FROM Client client " +
@@ -21,7 +23,9 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     );
 
     boolean existsClientById(Long id);
+
     boolean existsClientByEmail(String email);
+
     boolean existsClientByPhone(String phone);
 
 }

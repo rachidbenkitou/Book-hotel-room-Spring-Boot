@@ -1,10 +1,11 @@
 package com.benkitou.hotel.criteria;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
 public class PersonCriteria {
-    private Long id;
+    protected Long id;
     private String phone;
     private String email;
 

@@ -5,9 +5,10 @@ import com.benkitou.hotel.entities.Hotel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
     @Query("SELECT NEW com.benkitou.hotel.dtos.HotelDto(hotel.id, hotel.name" +
             ", hotel.address,hotel.description" +

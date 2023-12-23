@@ -46,7 +46,7 @@ public class HotelOwnerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseDto> addHotelOwner(@PathVariable(name = "id") Long id) throws EntityAlreadyExistsException, EntityNotFoundException {
+    public ResponseEntity<ResponseDto> deleteHotelOwner(@PathVariable(name = "id") Long id) throws EntityAlreadyExistsException, EntityNotFoundException {
         return new ResponseEntity<>(hotelOwnerService.deleteHotelOwner(id), HttpStatus.OK);
     }
 }

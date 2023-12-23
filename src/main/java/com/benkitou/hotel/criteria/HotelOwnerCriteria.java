@@ -1,5 +1,8 @@
 package com.benkitou.hotel.criteria;
 
+import lombok.Builder;
+
+@Builder
 public class HotelOwnerCriteria extends PersonCriteria {
     public HotelOwnerCriteria() {
     }

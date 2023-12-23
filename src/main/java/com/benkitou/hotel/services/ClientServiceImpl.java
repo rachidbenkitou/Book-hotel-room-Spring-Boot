@@ -70,7 +70,6 @@ public class ClientServiceImpl implements ClientService {
             System.out.println(clientDto.getFirstName());
             // Save the hotel and return the DTO
             Client savedClient = clientRepository.save(clientMapper.dtoToModel(clientDto));
-            System.out.println(savedClient.getFirstName());
             return clientMapper.modelToDto(savedClient);
         } catch (Exception e) {
             // Handle any exceptions during the save process

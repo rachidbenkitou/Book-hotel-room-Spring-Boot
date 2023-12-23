@@ -5,7 +5,9 @@ import lombok.Builder;
 @Builder
 public class ClientCriteria extends PersonCriteria {
 
-    public ClientCriteria(){}
+    public ClientCriteria() {
+    }
+
     public ClientCriteria(Long id) {
         super(id);
     }

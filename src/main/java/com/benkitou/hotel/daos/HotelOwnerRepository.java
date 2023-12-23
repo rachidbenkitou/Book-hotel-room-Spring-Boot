@@ -5,9 +5,11 @@ import com.benkitou.hotel.entities.HotelOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface HotelOwnerRepository extends JpaRepository<HotelOwner, Long> {
 
     @Query("SELECT NEW com.benkitou.hotel.dtos.HotelOwnerDto(owner.id, owner.firstName, owner.lastName, owner.address, owner.phone, owner.email) " +
@@ -22,7 +24,9 @@ public interface HotelOwnerRepository extends JpaRepository<HotelOwner, Long> {
     );
 
     boolean existsHotelOwnerById(Long id);
+
     boolean existsHotelOwnersByEmail(String email);
+
     boolean existsHotelOwnersByPhone(String phone);
 
 }
