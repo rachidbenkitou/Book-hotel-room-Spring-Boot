@@ -2,6 +2,7 @@ package com.benkitou.hotel.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,24 +15,26 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 public class RoomBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "ROOM_ID")
-    private long roomId;
+    private Long roomId;
 
     @Column(name = "BOOKING_ID")
-    private long bookingId;
+    private Long bookingId;
 
-    @CreationTimestamp
+//    @CreationTimestamp
     @Column(nullable = false, updatable = false)
-    private LocalDate bookingDate;
+    private LocalDate startDate;
 
-    private int numberOfDays;
+    @Column(nullable = false, updatable = false)
+    private LocalDate endDate;
 
-    private double price;
+    private Integer numberOfDays;
 
     @ManyToOne
     @JoinColumn(name = "ROOM_ID",referencedColumnName = "ID", insertable = false, updatable = false)

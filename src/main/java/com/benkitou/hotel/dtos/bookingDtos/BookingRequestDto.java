@@ -1,0 +1,23 @@
+package com.benkitou.hotel.dtos.bookingDtos;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class BookingRequestDto {
+    private Long clientId;
+    private Long statusId;
+    private Integer price;
+    private LocalDate dateCreated;
+    private List<RoomBookingRequestDto> roomBookingRequest;
+}
