@@ -66,7 +66,7 @@ public class PhoneNumbersServiceImpl implements PhoneNumbersService {
     @Override
     public PhoneNumberDto updatePhoneNumber(Long id, PhoneNumberDto phoneNumberDto) throws EntityNotFoundException, EntityAlreadyExistsException {
         PhoneNumberDto existingPhoneNumber = Optional.ofNullable(getPhoneNumberById(id))
-                .orElseThrow(() -> new EntityNotFoundException(String.format("Room with ID %d not found.", id)));
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Phone number with ID %d not found.", id)));
 
         if (!existingPhoneNumber.getId().equals(phoneNumberDto.getId())) {
             throw new IllegalArgumentException("The provided ID and DTO ID do not match.");

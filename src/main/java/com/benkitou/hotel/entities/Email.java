@@ -14,10 +14,10 @@ import org.hibernate.annotations.NotFoundAction;
 public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String email;
     @Column(name = "HOTEL_ID")
-    private long hotelId;
+    private Long hotelId;
     @ManyToOne
     @JoinColumn(name = "HOTEL_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
