@@ -8,6 +8,7 @@ import com.benkitou.hotel.entities.HotelOwner;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.exceptions.EntityServiceException;
+import com.benkitou.hotel.factoryPattern.HotelOwnerCriteriaFactory;
 import com.benkitou.hotel.mappers.HotelOwnerMapper;
 import com.benkitou.hotel.services.inter.HotelOwnerService;
 import jakarta.transaction.Transactional;
@@ -41,7 +42,7 @@ public class HotelOwnerServiceImpl implements HotelOwnerService {
     @Override
     public HotelOwnerDto getHotelOwnerById(Long id) throws EntityNotFoundException {
         try {
-            HotelOwnerCriteria hotelOwnerCriteria = new HotelOwnerCriteria(id);
+            HotelOwnerCriteria hotelOwnerCriteria = HotelOwnerCriteriaFactory.createById(id);
 
             List<HotelOwnerDto> hotelOwnerDtos = getHotelOwners(hotelOwnerCriteria);
             return hotelOwnerDtos.stream()

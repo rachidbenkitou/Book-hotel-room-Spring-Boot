@@ -8,6 +8,7 @@ import com.benkitou.hotel.entities.Client;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.exceptions.EntityServiceException;
+import com.benkitou.hotel.factoryPattern.ClientCriteriaFactory;
 import com.benkitou.hotel.mappers.ClientMapper;
 import com.benkitou.hotel.services.inter.ClientService;
 import jakarta.transaction.Transactional;
@@ -41,7 +42,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ClientDto getClientById(Long id) throws EntityNotFoundException {
         try {
-            ClientCriteria clientCriteria = new ClientCriteria(id);
+            ClientCriteria clientCriteria = ClientCriteriaFactory.createById(id);
 
             List<ClientDto> clientDtos = getClients(clientCriteria);
             return clientDtos.stream()
