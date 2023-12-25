@@ -1,7 +1,6 @@
 package com.benkitou.hotel.services;
 
 import com.benkitou.hotel.criteria.BookingCriteria;
-import com.benkitou.hotel.criteria.HotelCriteria;
 import com.benkitou.hotel.daos.BookingRepository;
 import com.benkitou.hotel.daos.BookingStatusRepository;
 import com.benkitou.hotel.daos.RoomBookingRepository;
@@ -19,7 +18,7 @@ import com.benkitou.hotel.services.inter.BookingService;
 import com.benkitou.hotel.services.inter.ClientService;
 import com.benkitou.hotel.services.inter.RoomService;
 import com.benkitou.hotel.utils.BookingStatusIds;
-import com.benkitou.hotel.utils.CalculateDateTime;
+import com.benkitou.hotel.utils.DateManipulator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -102,7 +101,7 @@ public class BookingServiceImpl implements BookingService {
                     .roomId(roomDto.getId())
                     .bookingId(booking.getId())
                     .startDate(roomBookingRequest.getStartDate())
-                    .endDate(CalculateDateTime.calculateEndDate(roomBookingRequest.getStartDate(), roomBookingRequest.getNumberOfDays()))
+                    .endDate(DateManipulator.addDaysToDate(roomBookingRequest.getStartDate(), roomBookingRequest.getNumberOfDays()))
                     .numberOfDays(roomBookingRequest.getNumberOfDays())
                     .build();
 
