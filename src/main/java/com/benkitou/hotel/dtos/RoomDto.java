@@ -31,4 +31,8 @@ public class RoomDto {
         this.hotelId = hotelId;
         this.hotelName = hotelName;
     }
+
+    public RoomDto() {
+
+    }
 }
