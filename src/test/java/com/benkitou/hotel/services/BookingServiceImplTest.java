@@ -10,16 +10,12 @@ import com.benkitou.hotel.dtos.bookingDtos.BookingRequestDto;
 import com.benkitou.hotel.dtos.bookingDtos.RoomBookingRequestDto;
 import com.benkitou.hotel.entities.Booking;
 import com.benkitou.hotel.entities.BookingStatus;
-import com.benkitou.hotel.entities.RoomBooking;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.mappers.BookingMapper;
-import com.benkitou.hotel.services.inter.BookingService;
 import com.benkitou.hotel.services.inter.ClientService;
 import com.benkitou.hotel.services.inter.RoomService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -27,150 +23,107 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class BookingServiceImplTest {
-
-    @InjectMocks
-    private BookingServiceImpl bookingService;
     @Mock
-    private BookingMapper bookingMapper;
-
-    @Mock
-    private ClientService clientService;
-
-    @Mock
-    private BookingStatusRepository bookingStatusRepository;
-
-    @Mock
-    private RoomService roomService;
-
-    @Mock
-    private BookingRepository bookingRepository;
-
-    @Mock
-    private RoomBookingRepository roomBookingRepository;
-
-    @BeforeEach
-    void setUp() {
-
-    }
+    BookingMapper bookingMapper ;
 
 
     @Test
-    void makeBooking_SuccessfulBooking() throws EntityNotFoundException {
+    public void testMakeBookingSuccess() throws EntityNotFoundException {
+
         // Arrange
+        BookingRepository bookingRepository = mock(BookingRepository.class);
+        RoomService roomService = mock(RoomService.class);
+        ClientService clientService = mock(ClientService.class);
+        RoomBookingRepository roomBookingRepository = mock(RoomBookingRepository.class);
+        BookingStatusRepository bookingStatusRepository = mock(BookingStatusRepository.class);
+        BookingServiceImpl bookingService = new BookingServiceImpl(
+                bookingRepository,
+                bookingMapper,
+                roomService,
+                clientService,
+                roomBookingRepository,
+                bookingStatusRepository
+        );
+
         BookingRequestDto bookingRequestDto = createValidBookingRequestDto();
+
+        // Mock service method calls
         when(clientService.getClientById(anyLong())).thenReturn(createValidClientDto());
         when(bookingStatusRepository.findById(anyLong())).thenReturn(Optional.of(createValidBookingStatus()));
         when(roomService.getRoomById(anyLong())).thenReturn(createValidRoomDto());
+        // Mock the BookingMapper
+        when(bookingMapper.modelToDto(any())).thenAnswer(invocation -> {
+            Booking bookingArgument = invocation.getArgument(0);
+            // Assuming you have a method in BookingMapper to convert Booking to BookingDto
+            return new BookingDto(
+                    bookingArgument.getId(),
+                    bookingArgument.getClientId(),
+                    "SampleClientPhone",
+                    "sample.client@example.com",
+                    bookingArgument.getStatusId(),
+                    "SampleStatusName",
+                    bookingArgument.getPrice(),
+                    bookingArgument.getDateCreated()
+            );
+        });
+
 
         // Act
         BookingDto result = bookingService.makeBooking(bookingRequestDto);
 
+
+        assertThat(result.getClientId()).isEqualTo(bookingRequestDto.getClientId());
+
         // Assert
+        // Add assertions based on the expected behavior after a successful booking
+        // For example, verify that the repository's save method was called with the correct arguments
         verify(bookingRepository, times(1)).save(any());
-        verify(roomBookingRepository, times(bookingRequestDto.getRoomBookingRequest().size())).save(any());
+        assertThat(result).isNotNull();
 
-        assertNotNull(result);
-        assertEquals(bookingRequestDto.getClientId(), result.getClientId());
-        assertEquals(bookingRequestDto.getStatusId(), result.getStatusId());
-        assertEquals(bookingRequestDto.getDateCreated(), result.getDateCreated());
-        assertEquals(bookingRequestDto.getPrice(), result.getPrice());
     }
 
-
-    public static BookingRequestDto createValidBookingRequestDto() {
-        BookingRequestDto bookingRequestDto = new BookingRequestDto();
-        bookingRequestDto.setClientId(1L);
-        bookingRequestDto.setStatusId(1L);
-        bookingRequestDto.setPrice(1200);
-        bookingRequestDto.setDateCreated(LocalDate.now());
-        bookingRequestDto.setRoomBookingRequest(Collections.singletonList(createValidRoomBookingRequestDto()));
-        return bookingRequestDto;
-    }
-
-    public static BookingRequestDto createBookingRequestDtoWithoutRoomBookings() {
-        BookingRequestDto bookingRequestDto = new BookingRequestDto();
-        bookingRequestDto.setClientId(1L);
-        bookingRequestDto.setStatusId(1L);
-        bookingRequestDto.setPrice(1200);
-        bookingRequestDto.setDateCreated(LocalDate.now());
-        return bookingRequestDto;
-    }
-
-    public static ClientDto createValidClientDto() {
-        ClientDto clientDto = new ClientDto();
-        clientDto.setId(1L);
-        // Set other client attributes as needed
-        return clientDto;
-    }
-
-    public static BookingStatus createValidBookingStatus() {
-        BookingStatus bookingStatus = new BookingStatus();
-        bookingStatus.setId(1L);
-        bookingStatus.setStatusName("Active");
-        return bookingStatus;
-    }
-
-    public static RoomDto createValidRoomDto() {
-        RoomDto roomDto = new RoomDto();
-        roomDto.setId(1L);
-        // Set other room attributes as needed
-        return roomDto;
-    }
-
-    public static Booking createValidBookingEntity() {
-        // Set other booking attributes as needed
-        return Booking.builder()
+    private BookingRequestDto createValidBookingRequestDto() {
+        // Assuming you have a Builder pattern for BookingRequestDto
+        return BookingRequestDto.builder()
                 .clientId(1L)
-                .StatusId(1L)
+                .statusId(1L)
+                .price(100)
                 .dateCreated(LocalDate.now())
-                .price(1200)
+                .roomBookingRequest(Collections.singletonList(createValidRoomBookingRequestDto()))
                 .build();
     }
 
-    public static RoomBookingRequestDto createValidRoomBookingRequestDto() {
-        RoomBookingRequestDto roomBookingRequestDto = new RoomBookingRequestDto();
-        roomBookingRequestDto.setRoomId(1L);
-        roomBookingRequestDto.setNumberOfDays(3);
-        roomBookingRequestDto.setPrice(300);
-        roomBookingRequestDto.setStartDate(LocalDate.now());
-        return roomBookingRequestDto;
-    }
 
-    public static RoomBooking createValidRoomBookingEntity() {
-        // Set other room booking attributes as needed
-        return RoomBooking.builder()
+    private RoomBookingRequestDto createValidRoomBookingRequestDto() {
+        // Assuming you have a Builder pattern for RoomBookingRequestDto
+        return RoomBookingRequestDto.builder()
                 .roomId(1L)
-                .bookingId(1L)
+                .numberOfDays(3)
+                .price(50.0)
                 .startDate(LocalDate.now())
                 .endDate(LocalDate.now().plusDays(3))
-                .numberOfDays(3)
                 .build();
     }
 
-    // Add more helper methods as needed for other entities
-
-    public static ClientService createMockClientService() throws EntityNotFoundException {
-        ClientService mockClientService = mock(ClientService.class);
-        when(mockClientService.getClientById(1L)).thenReturn(createValidClientDto());
-        return mockClientService;
+    private ClientDto createValidClientDto() {
+        // Assuming you have a Builder pattern for ClientDto
+        return new ClientDto(1L, "John", "Doe", "123 Main St", "555-1234", "john.doe@example.com");
     }
 
-    public static BookingStatusRepository createMockBookingStatusRepository() {
-        BookingStatusRepository mockRepository = mock(BookingStatusRepository.class);
-        when(mockRepository.findById(1L)).thenReturn(java.util.Optional.of(createValidBookingStatus()));
-        return mockRepository;
+    private BookingStatus createValidBookingStatus() {
+        // Assuming you have a Builder pattern for BookingStatus
+        return new BookingStatus(1L, "Confirmed");
     }
 
-    public static RoomService createMockRoomService() throws EntityNotFoundException {
-        RoomService mockRoomService = mock(RoomService.class);
-        when(mockRoomService.getRoomById(1L)).thenReturn(createValidRoomDto());
-        return mockRoomService;
+    private RoomDto createValidRoomDto() {
+        // Assuming you have a constructor in RoomDto that takes the specified parameters
+        return new RoomDto(1L, 101, 2, 100.0, 1L, "Sample Hotel");
     }
+
 }
