@@ -14,6 +14,7 @@ import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.mappers.BookingMapper;
 import com.benkitou.hotel.services.inter.ClientService;
 import com.benkitou.hotel.services.inter.RoomService;
+import com.benkitou.hotel.utils.BookingStatusIds;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -23,7 +24,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -64,10 +65,10 @@ class BookingServiceImplTest {
             return new BookingDto(
                     bookingArgument.getId(),
                     bookingArgument.getClientId(),
-                    "SampleClientPhone",
-                    "sample.client@example.com",
+                    "0655407529",
+                    "rachid@example.com",
                     bookingArgument.getStatusId(),
-                    "SampleStatusName",
+                    "Delivered",
                     bookingArgument.getPrice(),
                     bookingArgument.getDateCreated()
             );
@@ -79,14 +80,69 @@ class BookingServiceImplTest {
 
 
         assertThat(result.getClientId()).isEqualTo(bookingRequestDto.getClientId());
+        assertThat(result.getStatusId()).isEqualTo(BookingStatusIds.IN_PROGRESS);
+        assertThat(result.getPrice()).isEqualTo(bookingRequestDto.getPrice());
 
-        // Assert
-        // Add assertions based on the expected behavior after a successful booking
-        // For example, verify that the repository's save method was called with the correct arguments
+
         verify(bookingRepository, times(1)).save(any());
         assertThat(result).isNotNull();
 
     }
+
+    @Test
+    public void testMakeBookingThrowIllegalArgumentExceptionWhenEmptyRoomList() {
+        // Arrange
+        BookingRepository bookingRepository = mock(BookingRepository.class);
+        RoomService roomService = mock(RoomService.class);
+        ClientService clientService = mock(ClientService.class);
+        RoomBookingRepository roomBookingRepository = mock(RoomBookingRepository.class);
+        BookingStatusRepository bookingStatusRepository = mock(BookingStatusRepository.class);
+        BookingServiceImpl bookingService = new BookingServiceImpl(
+                bookingRepository,
+                bookingMapper,
+                roomService,
+                clientService,
+                roomBookingRepository,
+                bookingStatusRepository
+        );
+
+        BookingRequestDto bookingRequestDto = createBookingRequestDtoWithRoomBookingRequestEmpty();
+        // Act and Assert
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> bookingService.makeBooking(bookingRequestDto))
+                .withMessage("At least one room booking is required for the booking.");
+
+//        assertThatThrownBy(() -> bookingService.makeBooking(bookingRequestDto))
+//                .isInstanceOf(ArithmeticException.class)
+//                .hasMessageContaining("At least one room booking is required for the booking.");
+    }
+
+    @Test
+    public void testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist() {
+        // Arrange
+        BookingRepository bookingRepository = mock(BookingRepository.class);
+        RoomService roomService = mock(RoomService.class);
+        ClientService clientService = mock(ClientService.class);
+        RoomBookingRepository roomBookingRepository = mock(RoomBookingRepository.class);
+        BookingStatusRepository bookingStatusRepository = mock(BookingStatusRepository.class);
+        BookingServiceImpl bookingService = new BookingServiceImpl(
+                bookingRepository,
+                bookingMapper,
+                roomService,
+                clientService,
+                roomBookingRepository,
+                bookingStatusRepository
+        );
+
+        BookingRequestDto bookingRequestDto = createValidBookingRequestDto();
+        when(bookingStatusRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+        // Act and Assert
+        assertThatExceptionOfType(EntityNotFoundException.class)
+                .isThrownBy(() -> bookingService.makeBooking(bookingRequestDto))
+                .withMessage("BookingStatus not found with id: "+bookingRequestDto.getStatusId());
+    }
+
 
     private BookingRequestDto createValidBookingRequestDto() {
         // Assuming you have a Builder pattern for BookingRequestDto
@@ -96,6 +152,17 @@ class BookingServiceImplTest {
                 .price(100)
                 .dateCreated(LocalDate.now())
                 .roomBookingRequest(Collections.singletonList(createValidRoomBookingRequestDto()))
+                .build();
+    }
+
+    private BookingRequestDto createBookingRequestDtoWithRoomBookingRequestEmpty() {
+        // Assuming you have a Builder pattern for BookingRequestDto
+        return BookingRequestDto.builder()
+                .clientId(1L)
+                .statusId(1L)
+                .price(100)
+                .dateCreated(LocalDate.now())
+                .roomBookingRequest(Collections.emptyList()) // Use Collections.emptyList()
                 .build();
     }
 

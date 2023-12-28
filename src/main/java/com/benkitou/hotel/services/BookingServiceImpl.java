@@ -80,6 +80,7 @@ public class BookingServiceImpl implements BookingService {
             throw new IllegalArgumentException("At least one room booking is required for the booking.");
         }
         ClientDto clientDto= clientService.getClientById(bookingRequestDto.getClientId());
+        bookingRequestDto.setStatusId(BookingStatusIds.IN_PROGRESS);
         BookingStatus bookingStatus= bookingStatusRepository.findById(bookingRequestDto.getStatusId())
                 .orElseThrow(() -> new EntityNotFoundException("BookingStatus not found with id: " + bookingRequestDto.getStatusId()));
 
