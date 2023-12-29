@@ -1,17 +1,17 @@
 package com.benkitou.hotel.dtos;
 
 import com.benkitou.hotel.entities.Hotel;
+import com.benkitou.hotel.entities.RoomType;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RoomDto {
     private Long id;
@@ -19,8 +19,8 @@ public class RoomDto {
     private int description;
     private Double price;
     private Long hotelId;
-    private String hotelName;
     private Hotel hotel;
+    private String hotelName;
     private Integer capacity;
     private Integer capacityAdults;
     private Integer capacityChildren;
@@ -28,6 +28,7 @@ public class RoomDto {
     private Boolean hasWifi;
     private Boolean hasTv;
     private Long roomTypeId;
+    private RoomType roomType;
     private LocalDate dateAvailable;
 
 
@@ -38,10 +39,6 @@ public class RoomDto {
         this.price = price;
         this.hotelId = hotelId;
         this.hotelName = hotelName;
-    }
-
-    public RoomDto() {
-
     }
 
 

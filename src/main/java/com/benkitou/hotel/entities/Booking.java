@@ -10,7 +10,6 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -25,7 +24,7 @@ public class Booking {
     private Long clientId;
 
     @Column(name = "STATUS_ID")
-    private Long StatusId;
+    private Long statusId;
 
     private Integer price;
 

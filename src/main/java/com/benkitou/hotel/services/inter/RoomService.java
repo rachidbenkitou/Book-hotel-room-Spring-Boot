@@ -1,8 +1,6 @@
 package com.benkitou.hotel.services.inter;
 
-import com.benkitou.hotel.criteria.HotelOwnerCriteria;
 import com.benkitou.hotel.criteria.RoomCriteria;
-import com.benkitou.hotel.dtos.HotelOwnerDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.dtos.RoomDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
@@ -12,6 +10,8 @@ import java.util.List;
 
 public interface RoomService {
     List<RoomDto> getRooms(RoomCriteria roomCriteria);
+
+    List<RoomDto> getRoomsBySpecification(RoomCriteria roomCriteria);
 
     RoomDto getRoomById(Long id) throws EntityNotFoundException;
 

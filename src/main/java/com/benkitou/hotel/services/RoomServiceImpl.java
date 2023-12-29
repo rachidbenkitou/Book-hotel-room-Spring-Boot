@@ -2,6 +2,7 @@ package com.benkitou.hotel.services;
 
 import com.benkitou.hotel.criteria.RoomCriteria;
 import com.benkitou.hotel.daos.RoomRepository;
+import com.benkitou.hotel.daos.specifications.RoomSpecification;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.dtos.RoomDto;
 import com.benkitou.hotel.entities.Room;
@@ -38,6 +39,12 @@ public class RoomServiceImpl implements RoomService {
         } catch (Exception e) {
             throw new EntityServiceException("An error occurred while retrieving rooms.", e);
         }
+    }
+
+    @Override
+    public List<RoomDto> getRoomsBySpecification(RoomCriteria roomCriteria) {
+        RoomSpecification roomSpecification = new RoomSpecification(roomCriteria);
+        return roomMapper.modelsToDtos(roomRepository.findAll(roomSpecification));
     }
 
     @Override

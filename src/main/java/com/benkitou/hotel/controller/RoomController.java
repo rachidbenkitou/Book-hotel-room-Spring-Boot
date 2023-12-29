@@ -38,6 +38,12 @@ public class RoomController {
         return new ResponseEntity<>(roomService.getRooms(hotelCriteria), HttpStatus.OK);
     }
 
+    @PostMapping("/searchBySpecification")
+    public ResponseEntity<List<RoomDto>> searchRooms(@RequestBody RoomCriteria criteria) {
+        List<RoomDto> rooms = roomService.getRoomsBySpecification(criteria);
+        return new ResponseEntity<>(rooms, HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<RoomDto> getRoomById(@PathVariable(name = "id") Long id) throws EntityNotFoundException {
         return new ResponseEntity<>(roomService.getRoomById(id), HttpStatus.OK);

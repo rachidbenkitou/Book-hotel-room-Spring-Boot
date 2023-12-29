@@ -68,7 +68,6 @@ public class ClientServiceImpl implements ClientService {
         throwExceptionIfExistsByEmailOrPhone(clientDto.getEmail(), clientDto.getPhone());
 
         try {
-            System.out.println(clientDto.getFirstName());
             // Save the hotel and return the DTO
             Client savedClient = clientRepository.save(clientMapper.dtoToModel(clientDto));
             return clientMapper.modelToDto(savedClient);
@@ -99,7 +98,6 @@ public class ClientServiceImpl implements ClientService {
             throw new IllegalArgumentException("The provided ID and DTO ID do not match.");
         }
 
-//        throwExceptionIfExistsByEmailOrPhone(clientDto.getEmail(), clientDto.getPhone());
         try {
             Client updatedClient = clientRepository.save(clientMapper.dtoToModel(clientDto));
             return clientMapper.modelToDto(updatedClient);

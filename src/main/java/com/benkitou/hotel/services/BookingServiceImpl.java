@@ -87,7 +87,7 @@ public class BookingServiceImpl implements BookingService {
         // Create a new Booking entity
         Booking booking = Booking.builder()
                 .clientId(clientDto.getId())
-                .StatusId(bookingStatus.getId())
+                .statusId(bookingStatus.getId())
                 .dateCreated(bookingRequestDto.getDateCreated())
                 .price(bookingRequestDto.getPrice())
                 .build();

@@ -3,6 +3,7 @@ package com.benkitou.hotel.daos;
 import com.benkitou.hotel.dtos.RoomDto;
 import com.benkitou.hotel.entities.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface RoomRepository extends JpaRepository<Room, Long> {
+public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificationExecutor<Room> {
     @Query("SELECT NEW com.benkitou.hotel.dtos.RoomDto(room.id, room.number, room.description, room.price, room.hotel.id, room.hotel.name) " +
             "FROM Room room " +
             "LEFT JOIN room.hotel " +  // Assuming there is a 'hotel' association in the Room entity
