@@ -16,12 +16,16 @@ public class RoomDto {
     private Integer number;
     private int description;
     private Double price;
-
     private Long hotelId;
-
     private String hotelName;
     private Hotel hotel;
-
+    private Integer capacity;
+    private Integer capacityAdults;
+    private Integer capacityChildren;
+    private Boolean isAvailable;
+    private Boolean hasWifi;
+    private Boolean hasTv;
+    private Long roomTypeId;
 
     public RoomDto(long id, Integer number, int description, Double price, Long hotelId, String hotelName) {
         this.id = id;
