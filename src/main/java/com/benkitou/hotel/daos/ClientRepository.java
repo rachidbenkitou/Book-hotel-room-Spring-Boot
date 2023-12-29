@@ -11,15 +11,17 @@ import java.util.List;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    @Query("SELECT NEW com.benkitou.hotel.dtos.ClientDto(client.id, client.firstName, client.lastName, client.address, client.phone, client.email) " +
+    @Query("SELECT NEW com.benkitou.hotel.dtos.ClientDto(client.id, client.firstName, client.lastName, client.address, client.phone, client.email, client.cin) " +
             "FROM Client client " +
             "WHERE (:id IS NULL OR client.id = :id) " +
             "AND (:phone IS NULL OR LOWER(client.phone) LIKE LOWER(CONCAT('%', :phone, '%'))) " +
+            "AND (:cin IS NULL OR LOWER(client.cin) LIKE LOWER(CONCAT('%', :cin, '%'))) " +
             "AND (:email IS NULL OR LOWER(client.email) LIKE LOWER(CONCAT('%', :email, '%')))")
     List<ClientDto> findClientsByQuery(
             @Param("id") Long id,
             @Param("phone") String phone,
-            @Param("email") String email
+            @Param("email") String email,
+            @Param("cin") String cin
     );
 
     boolean existsClientById(Long id);

@@ -5,6 +5,7 @@ import com.benkitou.hotel.dtos.HotelOwnerDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
+import com.benkitou.hotel.factorypattern.HotelOwnerCriteriaFactory;
 import com.benkitou.hotel.services.inter.HotelOwnerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,10 @@ public class HotelOwnerController {
     public ResponseEntity<List<HotelOwnerDto>> getHotelOwnersByQuery(
             @RequestParam(value = "id", required = false) Long id,
             @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "email", required = false) String email
+            @RequestParam(value = "email", required = false) String email,
+            @RequestParam(value = "cin", required = false) String cin
     ) {
-        HotelOwnerCriteria hotelOwnerCriteria = new HotelOwnerCriteria(id, phone, email);
+        HotelOwnerCriteria hotelOwnerCriteria = HotelOwnerCriteriaFactory.createHotelOwnerObject(id, phone, email, cin);
 
         return new ResponseEntity<>(hotelOwnerService.getHotelOwners(hotelOwnerCriteria), HttpStatus.OK);
     }

@@ -8,7 +8,7 @@ import com.benkitou.hotel.entities.HotelOwner;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.exceptions.EntityServiceException;
-import com.benkitou.hotel.factoryPattern.HotelOwnerCriteriaFactory;
+import com.benkitou.hotel.factorypattern.HotelOwnerCriteriaFactory;
 import com.benkitou.hotel.mappers.HotelOwnerMapper;
 import com.benkitou.hotel.services.inter.HotelOwnerService;
 import jakarta.transaction.Transactional;
@@ -32,7 +32,8 @@ public class HotelOwnerServiceImpl implements HotelOwnerService {
             return hotelOwnerRepository.findHotelOwnersByQuery(
                     hotelOwnerCriteria.getId(),
                     hotelOwnerCriteria.getPhone(),
-                    hotelOwnerCriteria.getEmail()
+                    hotelOwnerCriteria.getEmail(),
+                    hotelOwnerCriteria.getCin()
             );
         } catch (Exception e) {
             throw new EntityServiceException("An error occurred while retrieving hotel owners.", e);
@@ -92,7 +93,6 @@ public class HotelOwnerServiceImpl implements HotelOwnerService {
         if (!existingHotelOwner.getId().equals(hotelOwnerDto.getId())) {
             throw new IllegalArgumentException("The provided ID and DTO ID do not match.");
         }
-//        throwExceptionIfExistsByEmailOrPhone(hotelOwnerDto.getEmail(), hotelOwnerDto.getPhone());
         try {
             HotelOwner updatedHotelOwner = hotelOwnerRepository.save(hotelOwnerMapper.dtoToModel(hotelOwnerDto));
             return hotelOwnerMapper.modelToDto(updatedHotelOwner);

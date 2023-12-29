@@ -20,6 +20,7 @@ public class BlacklistClient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    // This should be related to hotel, every verification should be related to hotel.
+    private long hotelId;
+    private String cin;
+    private String phone;
 }

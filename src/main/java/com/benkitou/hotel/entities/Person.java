@@ -17,4 +17,5 @@ public abstract class Person {
     private String phone;
     private String email;
     private String password;
+    private String cin;
 }

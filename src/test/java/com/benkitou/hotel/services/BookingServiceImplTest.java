@@ -59,7 +59,7 @@ class BookingServiceImplTest {
 
     // Test for successful booking
     @Test
-    public void testMakeBookingSuccess() throws EntityNotFoundException {
+    void testMakeBookingSuccess() throws EntityNotFoundException {
         // Arrange
         BookingRequestDto bookingRequestDto = createValidBookingRequestDto();
         when(clientService.getClientById(anyLong())).thenReturn(createValidClientDto());
@@ -99,7 +99,7 @@ class BookingServiceImplTest {
 
     // Test when the room list is empty, should throw IllegalArgumentException
     @Test
-    public void testMakeBookingThrowIllegalArgumentExceptionWhenEmptyRoomList() {
+    void testMakeBookingThrowIllegalArgumentExceptionWhenEmptyRoomList() {
         // Arrange
         BookingRequestDto bookingRequestDto = createBookingRequestDtoWithRoomBookingRequestEmpty();
 
@@ -112,7 +112,7 @@ class BookingServiceImplTest {
 
     // Test when BookingStatus does not exist, should throw EntityNotFoundException
     @Test
-    public void testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist() {
+    void testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist() {
         // Arrange
         BookingRequestDto bookingRequestDto = createValidBookingRequestDto();
         when(bookingStatusRepository.findById(anyLong())).thenReturn(Optional.empty());
@@ -155,7 +155,7 @@ class BookingServiceImplTest {
     }
 
     private ClientDto createValidClientDto() {
-        return new ClientDto(1L, "John", "Doe", "123 Main St", "555-1234", "john.doe@example.com");
+        return new ClientDto(1L, "John", "Doe", "123 Main St", "555-1234", "john.doe@example.com", "Test");
     }
 
     private BookingStatus createValidBookingStatus() {

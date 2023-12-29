@@ -7,6 +7,7 @@ import com.benkitou.hotel.dtos.HotelDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
+import com.benkitou.hotel.factorypattern.ClientCriteriaFactory;
 import com.benkitou.hotel.services.inter.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,9 +26,10 @@ public class ClientController {
     public ResponseEntity<List<ClientDto>> getClientsByQuery(
             @RequestParam(value = "id", required = false) Long id,
             @RequestParam(value = "phone", required = false) String phone,
-            @RequestParam(value = "email", required = false) String email
+            @RequestParam(value = "email", required = false) String email,
+            @RequestParam(value = "cin", required = false) String cin
     ) {
-        ClientCriteria clientCriteria = new ClientCriteria(id, phone, email);
+        ClientCriteria clientCriteria = ClientCriteriaFactory.createByClientObject(id, phone, email, cin);
 
         return new ResponseEntity<>(clientService.getClients(clientCriteria), HttpStatus.OK);
     }

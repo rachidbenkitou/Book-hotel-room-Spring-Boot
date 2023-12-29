@@ -1,23 +1,20 @@
 package com.benkitou.hotel.criteria;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PersonCriteria {
     protected Long id;
     private String phone;
     private String email;
-
-    public PersonCriteria() {
-    }
+    private String cin;
 
     public PersonCriteria(Long id) {
         this.id = id;
     }
-    public PersonCriteria(Long id, String phone, String email) {
-        this.id = id;
-        this.email = email;
-        this.phone = phone;
-    }
+
 }
