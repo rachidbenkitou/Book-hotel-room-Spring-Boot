@@ -9,6 +9,8 @@ import lombok.Data;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+import java.time.LocalDate;
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RoomDto {
@@ -26,6 +28,8 @@ public class RoomDto {
     private Boolean hasWifi;
     private Boolean hasTv;
     private Long roomTypeId;
+    private LocalDate dateAvailable;
+
 
     public RoomDto(long id, Integer number, int description, Double price, Long hotelId, String hotelName) {
         this.id = id;

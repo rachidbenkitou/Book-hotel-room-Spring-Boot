@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+import java.time.LocalDate;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +24,7 @@ public class Room {
     private Integer capacityAdults;
     private Integer capacityChildren;
     private Boolean isAvailable;
+    private LocalDate dateAvailable;
     private Boolean hasWifi;
     private Boolean hasTv;
 
