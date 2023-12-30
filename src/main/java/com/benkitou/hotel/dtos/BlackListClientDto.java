@@ -10,8 +10,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BlackListClientDto {
-    private long id;
-    private long hotelId;
+    private Long id;
+    private Long hotelId;
     private String cin;
+    private Long clientId;
     private String phone;
+    private Boolean isAllowed;
+    // How many times the client made noise
+    private Integer numberOfTries;
 }

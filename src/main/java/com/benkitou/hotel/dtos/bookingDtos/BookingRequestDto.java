@@ -17,6 +17,7 @@ import java.util.List;
 public class BookingRequestDto {
     private Long clientId;
     private Long statusId;
+    private Long hotelId;
     private Integer price;
     private LocalDate dateCreated;
     private List<RoomBookingRequestDto> roomBookingRequest;

@@ -19,8 +19,12 @@ import java.io.Serializable;
 public class BlacklistClient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private long hotelId;
+    private Long id;
+    private Long hotelId;
+    private Long clientId;
     private String cin;
     private String phone;
+    private Boolean isAllowed;
+    // How many times the client made noise
+    private Integer numberOfTries;
 }

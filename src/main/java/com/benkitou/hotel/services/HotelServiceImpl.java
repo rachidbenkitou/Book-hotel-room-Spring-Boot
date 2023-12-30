@@ -87,8 +87,6 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public HotelDto updateHotel(Long id, HotelDto hotelDto) throws EntityNotFoundException, EntityAlreadyExistsException {
-        String hotelName = hotelDto.getName();
-
         // Use Optional for clarity
         HotelDto existingHotel = Optional.ofNullable(getHotelById(id))
                 .orElseThrow(() -> new EntityNotFoundException(String.format("Hotel with ID %d not found.", id)));
@@ -98,7 +96,6 @@ public class HotelServiceImpl implements HotelService {
             throw new IllegalArgumentException("The provided ID and DTO ID do not match.");
         }
 
-//        throwExceptionIfExistsByName(hotelDto.getName());
         try {
             // Update the hotel and return the updated DTO
             Hotel updatedHotel = hotelRepository.save(hotelMapper.dtoToModel(hotelDto));

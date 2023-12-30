@@ -1,10 +1,12 @@
 package com.benkitou.hotel.services;
 
 import com.benkitou.hotel.criteria.BookingCriteria;
+import com.benkitou.hotel.daos.BlackListClientRepository;
 import com.benkitou.hotel.daos.BookingRepository;
 import com.benkitou.hotel.daos.BookingStatusRepository;
 import com.benkitou.hotel.daos.RoomBookingRepository;
-import com.benkitou.hotel.dtos.*;
+import com.benkitou.hotel.dtos.ClientDto;
+import com.benkitou.hotel.dtos.RoomDto;
 import com.benkitou.hotel.dtos.bookingDtos.BookingDto;
 import com.benkitou.hotel.dtos.bookingDtos.BookingRequestDto;
 import com.benkitou.hotel.dtos.bookingDtos.RoomBookingRequestDto;
@@ -40,6 +42,7 @@ public class BookingServiceImpl implements BookingService {
 
     private final RoomBookingRepository roomBookingRepository;
     private final BookingStatusRepository bookingStatusRepository;
+    private final BlackListClientRepository blackListClientRepository;
 
     @Override
     public List<BookingDto> getAllBooking(BookingCriteria bookingCriteria) {
@@ -75,13 +78,14 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public BookingDto makeBooking(BookingRequestDto bookingRequestDto) throws EntityNotFoundException {
+        // TODO: 'Test if the client exists in the black list for the hotel. (get the hotel from token)'
         List<RoomBookingRequestDto> roomBookingRequestDtos = bookingRequestDto.getRoomBookingRequest();
         if (Objects.isNull(roomBookingRequestDtos) || roomBookingRequestDtos.isEmpty()) {
             throw new IllegalArgumentException("At least one room booking is required for the booking.");
         }
-        ClientDto clientDto= clientService.getClientById(bookingRequestDto.getClientId());
+        ClientDto clientDto = clientService.getClientById(bookingRequestDto.getClientId());
         bookingRequestDto.setStatusId(BookingStatusIds.IN_PROGRESS);
-        BookingStatus bookingStatus= bookingStatusRepository.findById(bookingRequestDto.getStatusId())
+        BookingStatus bookingStatus = bookingStatusRepository.findById(bookingRequestDto.getStatusId())
                 .orElseThrow(() -> new EntityNotFoundException("BookingStatus not found with id: " + bookingRequestDto.getStatusId()));
 
         // Create a new Booking entity
@@ -113,16 +117,18 @@ public class BookingServiceImpl implements BookingService {
         return bookingMapper.modelToDto(booking);
     }
 
-    private Booking retrieveBookingById(Long bookingId){
+    private Booking retrieveBookingById(Long bookingId) {
         return bookingRepository.findById(bookingId)
-                .orElseThrow(()->new EntityServiceException(String.format("The booking with id %d not found.", bookingId)));
+                .orElseThrow(() -> new EntityServiceException(String.format("The booking with id %d not found.", bookingId)));
     }
+
     @Override
     public BookingDto modifyBookingStatusToActive(Long bookingId) {
         Booking booking = retrieveBookingById(bookingId);
         booking.setStatusId(BookingStatusIds.ACTIVE);
         return bookingMapper.modelToDto(bookingRepository.save(booking));
     }
+
     @Override
     public BookingDto modifyBookingStatusToCancelled(Long bookingId) {
         Booking booking = retrieveBookingById(bookingId);
