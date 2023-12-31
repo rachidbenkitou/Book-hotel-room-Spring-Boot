@@ -31,5 +31,5 @@ public interface BlackListClientRepository extends JpaRepository<BlacklistClient
 
     boolean existsByCinAndHotelId(String cin, Long hotelId);
 
-    boolean existsByClientIdAndHotelId(Long clientId, Long hotelId);
+    boolean existsByClientIdAndHotelIdAndIsAllowed(Long clientId, Long hotelId, Boolean isAllowed);
 }

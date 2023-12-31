@@ -1,4 +1,4 @@
-package com.benkitou.hotel.dtos.bookingDtos;
+package com.benkitou.hotel.dtos.bookingdtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

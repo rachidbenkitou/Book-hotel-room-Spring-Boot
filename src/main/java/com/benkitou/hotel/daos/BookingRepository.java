@@ -1,6 +1,6 @@
 package com.benkitou.hotel.daos;
 
-import com.benkitou.hotel.dtos.bookingDtos.BookingDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
 import com.benkitou.hotel.entities.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    @Query("SELECT NEW com.benkitou.hotel.dtos.bookingDtos.BookingDto(" +
+    @Query("SELECT NEW com.benkitou.hotel.dtos.bookingdtos.BookingDto(" +
             "booking.id,booking.client.id, booking.client.phone, booking.client.email, " +
             "booking.bookingStatus.id, booking.bookingStatus.statusName, " +
             "booking.price, booking.dateCreated) " +

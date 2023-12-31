@@ -43,8 +43,12 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public List<RoomDto> getRoomsBySpecification(RoomCriteria roomCriteria) {
-        RoomSpecification roomSpecification = new RoomSpecification(roomCriteria);
-        return roomMapper.modelsToDtos(roomRepository.findAll(roomSpecification));
+        try {
+            RoomSpecification roomSpecification = new RoomSpecification(roomCriteria);
+            return roomMapper.modelsToDtos(roomRepository.findAll(roomSpecification));
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while retrieving rooms.", e);
+        }
     }
 
     @Override

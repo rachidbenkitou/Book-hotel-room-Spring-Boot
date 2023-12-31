@@ -1,9 +1,7 @@
 package com.benkitou.hotel.controller;
 
 import com.benkitou.hotel.criteria.ClientCriteria;
-import com.benkitou.hotel.daos.ClientRepository;
 import com.benkitou.hotel.dtos.ClientDto;
-import com.benkitou.hotel.dtos.HotelDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;

@@ -1,9 +1,8 @@
 package com.benkitou.hotel.controller;
 
 import com.benkitou.hotel.criteria.BookingCriteria;
-import com.benkitou.hotel.dtos.bookingDtos.BookingDto;
-import com.benkitou.hotel.dtos.bookingDtos.BookingRequestDto;
-import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
+import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingRequestDto;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.services.inter.BookingService;
 import lombok.RequiredArgsConstructor;
@@ -40,7 +39,7 @@ public class BookingController {
     }
 
     @PostMapping
-    public ResponseEntity<BookingDto> makeBooking(@RequestBody BookingRequestDto bookingRequestDto) throws EntityAlreadyExistsException, EntityNotFoundException {
+    public ResponseEntity<BookingDto> makeBooking(@RequestBody BookingRequestDto bookingRequestDto) throws EntityNotFoundException {
         return new ResponseEntity<>(bookingService.makeBooking(bookingRequestDto), HttpStatus.CREATED);
     }
 

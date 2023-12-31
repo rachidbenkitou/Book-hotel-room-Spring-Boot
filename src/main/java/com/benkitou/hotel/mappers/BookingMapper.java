@@ -1,6 +1,6 @@
 package com.benkitou.hotel.mappers;
 
-import com.benkitou.hotel.dtos.bookingDtos.BookingDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
 import com.benkitou.hotel.entities.Booking;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

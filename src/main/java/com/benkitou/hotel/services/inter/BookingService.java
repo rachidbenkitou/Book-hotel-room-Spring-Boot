@@ -1,8 +1,8 @@
 package com.benkitou.hotel.services.inter;
 
 import com.benkitou.hotel.criteria.BookingCriteria;
-import com.benkitou.hotel.dtos.bookingDtos.BookingDto;
-import com.benkitou.hotel.dtos.bookingDtos.BookingRequestDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingRequestDto;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 
 import java.util.List;
