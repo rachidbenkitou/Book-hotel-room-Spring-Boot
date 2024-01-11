@@ -8,6 +8,8 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +21,14 @@ public class Hotel implements Serializable {
     private String name;
     private String address;
     private String description;
+    private String defaultImage;
     @Column(name = "CITY_ID")
     private Long cityId;
     @ManyToOne
     @JoinColumn(name = "CITY_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private City city;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Image> images;
 }

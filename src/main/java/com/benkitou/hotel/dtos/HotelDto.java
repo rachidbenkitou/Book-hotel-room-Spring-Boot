@@ -1,7 +1,10 @@
 package com.benkitou.hotel.dtos;
 
+import com.benkitou.hotel.entities.Image;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -12,6 +15,8 @@ import lombok.Data;
     private String description;
     private long cityId;
     private String cityName;
+    private String defaultImage;
+    private List<Image> images;
 
     public HotelDto(long id, String name, String address, String description, long cityId, String cityName){
         this.id=id;

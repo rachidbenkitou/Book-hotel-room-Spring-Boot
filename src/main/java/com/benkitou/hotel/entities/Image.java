@@ -1,24 +1,23 @@
 package com.benkitou.hotel.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Builder
-public class City implements Serializable {
+public class Image implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String url;
+    @ManyToOne
+    private Hotel hotel;
+    @ManyToOne
+    private Room room;
 }

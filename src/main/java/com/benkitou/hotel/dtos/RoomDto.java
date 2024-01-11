@@ -1,6 +1,7 @@
 package com.benkitou.hotel.dtos;
 
 import com.benkitou.hotel.entities.Hotel;
+import com.benkitou.hotel.entities.Image;
 import com.benkitou.hotel.entities.RoomType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -30,6 +32,8 @@ public class RoomDto {
     private Long roomTypeId;
     private RoomType roomType;
     private LocalDate dateAvailable;
+    private String defaultImage;
+    private List<Image> images;
 
 
     public RoomDto(long id, Integer number, int description, Double price, Long hotelId, String hotelName) {

@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Room {
+public class Room implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +29,7 @@ public class Room {
     private LocalDate dateAvailable;
     private Boolean hasWifi;
     private Boolean hasTv;
+    private String defaultImage;
 
     @Column(name = "HOTEL_ID")
     private Long hotelId;
@@ -43,4 +46,7 @@ public class Room {
     @JoinColumn(name = "ROOM_TYPE_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private RoomType roomType;
+
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Image> images;
 }
