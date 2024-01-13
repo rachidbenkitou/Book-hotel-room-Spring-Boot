@@ -71,6 +71,13 @@
 			<artifactId>mysql</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.flickr4java</groupId>
+			<artifactId>flickr4java</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+
+
 
 	</dependencies>
 
