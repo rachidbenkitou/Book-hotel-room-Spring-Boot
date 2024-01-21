@@ -1,4 +1,4 @@
-package com.benkitou.hotel.services.strategy.inter;
+package com.benkitou.hotel.services.strategy.inter.images;
 
 import com.benkitou.hotel.dtos.ResponseDto;
 

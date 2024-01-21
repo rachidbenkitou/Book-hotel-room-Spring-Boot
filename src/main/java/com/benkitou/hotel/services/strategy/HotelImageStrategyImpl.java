@@ -8,9 +8,10 @@ import com.benkitou.hotel.entities.Image;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityServiceException;
 import com.benkitou.hotel.mappers.ImageMapper;
-import com.benkitou.hotel.services.strategy.inter.ImageDeletionStrategy;
-import com.benkitou.hotel.services.strategy.inter.ImageStrategy;
-import com.benkitou.hotel.services.strategy.inter.ImagesStrategy;
+import com.benkitou.hotel.services.strategy.inter.HotelImageStrategy;
+import com.benkitou.hotel.services.strategy.inter.images.ImageDeletionStrategy;
+import com.benkitou.hotel.services.strategy.inter.images.ImageStrategy;
+import com.benkitou.hotel.services.strategy.inter.images.ImagesStrategy;
 import com.benkitou.hotel.utils.Constants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ import static com.benkitou.hotel.utils.FilesOperations.removeLastSegmentFromPath
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class HotelImageStrategy implements ImageStrategy, ImagesStrategy, ImageDeletionStrategy {
+public class HotelImageStrategyImpl implements HotelImageStrategy {
 
     private final ImageDao imageDao;
     private final ImageMapper imageMapper;
