@@ -8,7 +8,7 @@ import com.benkitou.hotel.entities.Client;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.exceptions.EntityServiceException;
-import com.benkitou.hotel.factorypattern.ClientCriteriaFactory;
+import com.benkitou.hotel.patterns.factory.ClientCriteriaFactory;
 import com.benkitou.hotel.mappers.ClientMapper;
 import com.benkitou.hotel.services.inter.ClientService;
 import jakarta.transaction.Transactional;

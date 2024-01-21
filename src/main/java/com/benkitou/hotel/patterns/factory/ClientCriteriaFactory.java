@@ -1,4 +1,4 @@
-package com.benkitou.hotel.factorypattern;
+package com.benkitou.hotel.patterns.factory;
 
 import com.benkitou.hotel.criteria.ClientCriteria;
 
