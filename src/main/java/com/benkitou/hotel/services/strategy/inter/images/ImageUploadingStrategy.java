@@ -4,6 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-public interface ImageStrategy {
+public interface ImageUploadingStrategy {
     void uploadImage(MultipartFile file, Long entityId) throws IOException;
 }

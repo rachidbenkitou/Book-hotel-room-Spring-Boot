@@ -5,7 +5,7 @@ import com.benkitou.hotel.dtos.ClientDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
-import com.benkitou.hotel.patterns.factory.ClientCriteriaFactory;
+import com.benkitou.hotel.factory.ClientCriteriaFactory;
 import com.benkitou.hotel.services.inter.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
