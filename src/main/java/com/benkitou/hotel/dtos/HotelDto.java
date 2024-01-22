@@ -13,6 +13,7 @@ import java.util.List;
     private String name;
     private String address;
     private String description;
+    private String status;
     private long cityId;
     private String cityName;
     private String defaultImage;

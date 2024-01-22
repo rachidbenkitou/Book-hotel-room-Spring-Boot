@@ -22,6 +22,7 @@ public class Hotel implements Serializable {
     private String address;
     private String description;
     private String defaultImage;
+    private String status;
     @Column(name = "CITY_ID")
     private Long cityId;
     @ManyToOne
@@ -31,4 +32,10 @@ public class Hotel implements Serializable {
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Image> images;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Email> emails;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<PhoneNumber> phoneNumbers;
 }
