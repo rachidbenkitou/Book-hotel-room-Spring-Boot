@@ -18,4 +18,8 @@ flickr:
   appKey: 72157720906359052-684a7e09032b5f26
   appSecret: f0bf6353e26cc745
 
-
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
