@@ -2,10 +2,12 @@ package com.benkitou.hotel.controller;
 
 import com.benkitou.hotel.criteria.HotelCriteria;
 import com.benkitou.hotel.dtos.HotelDto;
+import com.benkitou.hotel.dtos.ImageDto;
 import com.benkitou.hotel.dtos.ResponseDto;
 import com.benkitou.hotel.exceptions.EntityAlreadyExistsException;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.services.inter.HotelService;
+import com.benkitou.hotel.services.inter.ImageService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,6 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HotelController {
     private final HotelService hotelService;
+    private final ImageService imageService;
 
     @GetMapping
     public ResponseEntity<List<HotelDto>> getHotelsByQuery(
@@ -58,8 +61,8 @@ public class HotelController {
             // Handle exception
         }
 
-
-        return new ResponseEntity<>(hotelService.addHotel(hotelDto), HttpStatus.CREATED);
+        HotelDto savedHotel = hotelService.addHotel(hotelDto, images);
+        return new ResponseEntity<>(savedHotel, HttpStatus.CREATED);
     }
 
 

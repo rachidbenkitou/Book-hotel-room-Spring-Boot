@@ -22,6 +22,8 @@ public class Hotel implements Serializable {
     private String address;
     private String description;
     private String defaultImage;
+    private String defaultPhoneNumber;
+    private String defaultEmail;
     private String status;
     @Column(name = "CITY_ID")
     private Long cityId;

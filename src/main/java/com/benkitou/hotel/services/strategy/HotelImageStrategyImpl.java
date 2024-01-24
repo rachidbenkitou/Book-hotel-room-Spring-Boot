@@ -26,7 +26,7 @@ import java.util.Optional;
 import static com.benkitou.hotel.utils.FilesOperations.deleteFolderAndContents;
 import static com.benkitou.hotel.utils.FilesOperations.removeLastSegmentFromPath;
 
-@Service
+@Service("hotelImageStrategy")
 @Transactional
 @RequiredArgsConstructor
 public class HotelImageStrategyImpl implements HotelImageStrategy {
@@ -38,7 +38,7 @@ public class HotelImageStrategyImpl implements HotelImageStrategy {
     public void uploadImage(MultipartFile file, Long hotelId) throws IOException {
 
         try {
-            String folderPath = String.format("%s hotels/hotel_ %d /", Constants.IMAGE_FOLDER_PATH, hotelId);
+            String folderPath = String.format("%shotels/hotel_%d/", Constants.IMAGE_FOLDER_PATH, hotelId);
             String filePath = folderPath + file.getOriginalFilename();
 
             Optional<Image> existingImage = imageDao.findByFilePath(filePath);

@@ -5,12 +5,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Builder
+@AllArgsConstructor
 public class PhoneNumberDto {
 
     private Long id;
@@ -20,6 +24,7 @@ public class PhoneNumberDto {
     private String hotelCity;
     private Hotel hotel;
 
+    public PhoneNumberDto(){}
 
     public PhoneNumberDto(Long id, String phone, Long hotelId, String hotelName, String hotelCity) {
         this.id = id;
