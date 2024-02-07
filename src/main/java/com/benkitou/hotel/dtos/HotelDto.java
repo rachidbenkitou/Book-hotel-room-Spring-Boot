@@ -1,13 +1,9 @@
 package com.benkitou.hotel.dtos;
 
-import com.benkitou.hotel.entities.Image;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -23,13 +19,19 @@ public class HotelDto implements Serializable {
     private String defaultPhoneNumber;
     private String defaultEmail;
 
-    HotelDto(){}
-    public HotelDto(long id, String name, String address, String description, long cityId, String cityName) {
+    HotelDto() {
+    }
+
+    public HotelDto(long id, String name, String address, String description, long cityId, String cityName, String defaultImage, String defaultPhoneNumber, String defaultEmail, String status) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.description = description;
         this.cityId = cityId;
         this.cityName = cityName;
+        this.defaultImage = defaultImage;
+        this.defaultEmail = defaultEmail;
+        this.defaultPhoneNumber = defaultPhoneNumber;
+        this.status = status;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
     @Query("SELECT NEW com.benkitou.hotel.dtos.HotelDto(hotel.id, hotel.name" +
             ", hotel.address,hotel.description" +
-            ", city.id, city.name) " +
+            ", city.id, city.name, hotel.defaultImage, hotel.defaultPhoneNumber,  hotel.defaultEmail, hotel.status) " +
             "FROM Hotel hotel LEFT JOIN City city ON hotel.cityId=city.id " +
             "WHERE (:id IS NULL OR hotel.id= :id)" +
             "AND (:name IS NULL OR LOWER(hotel.name) LIKE LOWER(CONCAT('%', :name, '%')))" +

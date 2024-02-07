@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost/hotelBookingRoom?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/hotelBookingRoom?createDatabaseIfNotExist=true
     username: root
     password:
+
   jpa:
     hibernate:
       ddl-auto: update
