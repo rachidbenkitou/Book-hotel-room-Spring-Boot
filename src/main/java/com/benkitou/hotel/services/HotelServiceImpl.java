@@ -46,7 +46,8 @@ public class HotelServiceImpl implements HotelService {
                     hotelCriteria.getId(),
                     hotelCriteria.getName(),
                     hotelCriteria.getAddress(),
-                    hotelCriteria.getCityId()
+                    hotelCriteria.getCityId(),
+                    hotelCriteria.getStatus()
             );
         } catch (Exception e) {
             throw new EntityServiceException("An error occurred while retrieving hotels.", e);

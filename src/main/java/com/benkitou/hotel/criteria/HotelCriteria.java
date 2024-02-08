@@ -10,5 +10,6 @@ public class HotelCriteria {
     private Long id;
     private String name;
     private String address;
+    private String status;
     private Long cityId;
 }

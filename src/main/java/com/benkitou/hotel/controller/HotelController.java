@@ -30,12 +30,14 @@ public class HotelController {
             @RequestParam(value = "id", required = false) Long id,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "address", required = false) String address,
-            @RequestParam(value = "cityId", required = false) Long cityId
+            @RequestParam(value = "cityId", required = false) Long cityId,
+            @RequestParam(value = "status", required = false) String status
     ) {
         HotelCriteria hotelCriteria = HotelCriteria.builder()
                 .id(id)
                 .name(name)
                 .address(address)
+                .status(status)
                 .cityId(cityId)
                 .build();
 
