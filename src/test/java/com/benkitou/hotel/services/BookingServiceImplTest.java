@@ -128,7 +128,7 @@ class BookingServiceImplTest {
         return BookingRequestDto.builder()
                 .clientId(1L)
                 .statusId(1L)
-                .price(100)
+                .price(100.0)
                 .dateCreated(LocalDate.now())
                 .roomBookingRequest(Collections.singletonList(createValidRoomBookingRequestDto()))
                 .build();
@@ -138,7 +138,7 @@ class BookingServiceImplTest {
         return BookingRequestDto.builder()
                 .clientId(1L)
                 .statusId(1L)
-                .price(100)
+                .price(100.0)
                 .dateCreated(LocalDate.now())
                 .roomBookingRequest(Collections.emptyList())
                 .build();
@@ -167,6 +167,6 @@ class BookingServiceImplTest {
     }
 
     private BookingDto createValidBookingDto() {
-        return new BookingDto(1L, 1L, "0655407529", "rachid@example.com", 1L, "Delivered", 100, LocalDate.now());
+        return new BookingDto(1L, 1L, "0655407529", "rachid@example.com", 1L, "Delivered", 100.0, LocalDate.now());
     }
 }

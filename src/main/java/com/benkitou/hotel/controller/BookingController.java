@@ -3,6 +3,7 @@ package com.benkitou.hotel.controller;
 import com.benkitou.hotel.criteria.BookingCriteria;
 import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
 import com.benkitou.hotel.dtos.bookingdtos.BookingRequestDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingSumPricePerYearDTO;
 import com.benkitou.hotel.exceptions.EntityNotFoundException;
 import com.benkitou.hotel.services.inter.BookingService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class BookingController {
             @RequestParam(value = "statusId", required = false) Long statusId,
             @RequestParam(value = "clientId", required = false) Long clientId,
             @RequestParam(value = "dateCreated", required = false) LocalDate dateCreated,
-            @RequestParam(value = "price", required = false) Integer price
+            @RequestParam(value = "price", required = false) Double price
     ) {
         BookingCriteria bookingCriteria = BookingCriteria.builder()
                 .id(id)
@@ -53,6 +54,21 @@ public class BookingController {
     public ResponseEntity<BookingDto> modifyBookingStatusToCancelled(@PathVariable Long bookingId) throws EntityNotFoundException {
         BookingDto updatedBooking = bookingService.modifyBookingStatusToCancelled(bookingId);
         return ResponseEntity.ok(updatedBooking);
+    }
+
+    @GetMapping("countReservations/{hotelId}")
+    public ResponseEntity<Long> countReservationsByHotelId(@PathVariable(value = "hotelId", required = false) Long hotelId) {
+        return new ResponseEntity<>(bookingService.countReservationsByHotelId(hotelId), HttpStatus.OK);
+    }
+
+    @GetMapping("sumReservationsPrice/{hotelId}")
+    public ResponseEntity<Double> sumReservationsPriceByHotelId(@PathVariable(value = "hotelId", required = false) Long hotelId) {
+        return new ResponseEntity<>(bookingService.sumReservationsPriceByHotelId(hotelId), HttpStatus.OK);
+    }
+
+    @GetMapping("sumReservationsPriceForEveryYear/{hotelId}")
+    public ResponseEntity<List<BookingSumPricePerYearDTO> > sumReservationsPriceForEveryYearByHotelId(@PathVariable(value = "hotelId", required = false) Long hotelId) {
+        return new ResponseEntity<>(bookingService.sumReservationsPriceForEveryYearByHotelId(hotelId), HttpStatus.OK);
     }
 
 }

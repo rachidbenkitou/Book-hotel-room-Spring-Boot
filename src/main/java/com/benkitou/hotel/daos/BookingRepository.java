@@ -28,9 +28,15 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             @Param("id") Long id,
             @Param("clientId") Long clientId,
             @Param("statusId") Long statusId,
-            @Param("price") Integer price,
+            @Param("price") Double price,
             @Param("dateCreated") LocalDate dateCreated
     );
 
+    Long countByHotelId(Long hotelId);
+    @Query("SELECT SUM(b.price) FROM Booking b WHERE b.hotelId = ?1")
+    Double sumPriceByHotelId(Long hotelId);
+
+    @Query("SELECT YEAR(b.dateCreated) AS year, SUM(b.price) AS totalPrice FROM Booking b WHERE b.hotelId = :hotelId GROUP BY YEAR(b.dateCreated)")
+    List<Object[]> sumReservationPriceByYear(Long hotelId);
 
 }

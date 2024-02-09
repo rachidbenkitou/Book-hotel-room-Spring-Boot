@@ -9,6 +9,7 @@ import com.benkitou.hotel.dtos.ClientDto;
 import com.benkitou.hotel.dtos.RoomDto;
 import com.benkitou.hotel.dtos.bookingdtos.BookingDto;
 import com.benkitou.hotel.dtos.bookingdtos.BookingRequestDto;
+import com.benkitou.hotel.dtos.bookingdtos.BookingSumPricePerYearDTO;
 import com.benkitou.hotel.dtos.bookingdtos.RoomBookingRequestDto;
 import com.benkitou.hotel.entities.Booking;
 import com.benkitou.hotel.entities.BookingStatus;
@@ -25,6 +26,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -149,6 +151,50 @@ public class BookingServiceImpl implements BookingService {
             return bookingMapper.modelToDto(bookingRepository.save(booking));
         } catch (Exception e) {
             throw new EntityServiceException("An error occurred while modifying booking status.", e);
+        }
+    }
+
+    @Override
+    public Long countReservationsByHotelId(Long hotelId) {
+        try {
+            return bookingRepository.countByHotelId(hotelId);
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while counting reservations by hotelId.", e);
+        }
+    }
+
+    @Override
+    public Double sumReservationsPriceByHotelId(Long hotelId) {
+        try {
+            if (bookingRepository.sumPriceByHotelId(hotelId) == null || bookingRepository.sumPriceByHotelId(hotelId) == 0.0) {
+                return 0.0;
+            }
+            return bookingRepository.sumPriceByHotelId(hotelId);
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while calculating sum reservations price by hotelId.", e);
+        }
+    }
+
+    @Override
+    public List<BookingSumPricePerYearDTO> sumReservationsPriceForEveryYearByHotelId(Long hotelId) {
+        try {
+            List<BookingSumPricePerYearDTO> dtos = new ArrayList<>();
+            List<Object[]> results = bookingRepository.sumReservationPriceByYear(hotelId);
+
+            for (Object[] result : results) {
+                Integer year = (Integer) result[0];
+                Double totalPrice = (Double) result[1];
+
+                BookingSumPricePerYearDTO dto = BookingSumPricePerYearDTO.builder()
+                        .year(year)
+                        .totalPrice(totalPrice)
+                        .build();
+                dtos.add(dto);
+            }
+
+            return dtos;
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while calculating sum reservations price  for every year by hotelId.", e);
         }
     }
 

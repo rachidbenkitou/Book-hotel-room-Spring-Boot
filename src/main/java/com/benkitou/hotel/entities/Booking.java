@@ -22,11 +22,13 @@ public class Booking {
     private long id;
     @Column(name = "CLIENT_ID")
     private Long clientId;
+    @Column(name = "HOTEL_ID")
+    private Long hotelId;
 
     @Column(name = "STATUS_ID")
     private Long statusId;
 
-    private Integer price;
+    private Double price;
 
     @CreationTimestamp
     private LocalDate dateCreated;
@@ -35,6 +37,11 @@ public class Booking {
     @JoinColumn(name = "CLIENT_ID", referencedColumnName = "ID", insertable = false, updatable = false)
     @NotFound(action = NotFoundAction.IGNORE)
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "HOTEL_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Hotel hotel;
 
     @ManyToOne
     @JoinColumn(name = "STATUS_ID", referencedColumnName = "ID", insertable = false, updatable = false)

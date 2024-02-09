@@ -14,22 +14,22 @@ public class BookingDto {
     private String clientEmail;
     private Long statusId;
     private String statusName;
+    private Long hotelId;
 
-
-    private Integer price;
+    private Double price;
 
     private LocalDate dateCreated;
 
-    public BookingDto(){
+    public BookingDto() {
 
     }
 
-    public BookingDto(Long id, Long clientId, String clientPhone, String clientEmail, Long statusId, String statusName, Integer price, LocalDate dateCreated) {
-        this.id=id;
+    public BookingDto(Long id, Long clientId, String clientPhone, String clientEmail, Long statusId, String statusName, Double price, LocalDate dateCreated) {
+        this.id = id;
         this.clientId = clientId;
-        this.clientPhone=clientPhone;
-        this.clientEmail=clientEmail;
-        this.statusName=statusName;
+        this.clientPhone = clientPhone;
+        this.clientEmail = clientEmail;
+        this.statusName = statusName;
         this.statusId = statusId;
         this.price = price;
         this.dateCreated = dateCreated;

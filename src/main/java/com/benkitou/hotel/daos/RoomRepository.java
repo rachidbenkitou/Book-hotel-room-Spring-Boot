@@ -31,4 +31,10 @@ public interface RoomRepository extends JpaRepository<Room, Long>, JpaSpecificat
     boolean existsRoomById(Long id);
 
     boolean existsByNumberAndHotelId(Integer number, Long hotelId);
+
+    Long countByHotelId(Long hotelId);
+
+    Long countRoomByRoomTypeIdAndHotelId(Long roomTypeId, Long hotelId);
+
+    Long countRoomByHotelId(Long hotelId);
 }

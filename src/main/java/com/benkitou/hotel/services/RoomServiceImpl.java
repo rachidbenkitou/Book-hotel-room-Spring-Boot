@@ -113,4 +113,22 @@ public class RoomServiceImpl implements RoomService {
             throw new EntityServiceException("An error occurred while deleting the room.", e);
         }
     }
+
+    @Override
+    public Long countRoomsByTypeAndHotelId(Long hotelId, Long roomTypeId) {
+        try {
+            return roomRepository.countRoomByRoomTypeIdAndHotelId(roomTypeId, hotelId);
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while counting rooms by hotelId and typeId.", e);
+        }
+    }
+
+    @Override
+    public Long countRoomsHotelId(Long hotelId) {
+        try {
+            return roomRepository.countByHotelId(hotelId);
+        } catch (Exception e) {
+            throw new EntityServiceException("An error occurred while counting rooms by hotelId.", e);
+        }
+    }
 }

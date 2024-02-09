@@ -11,6 +11,6 @@ public class BookingCriteria {
     private Long id;
     private Long clientId;
     private Long statusId;
-    private Integer price;
+    private Double price;
     private LocalDate dateCreated;
 }

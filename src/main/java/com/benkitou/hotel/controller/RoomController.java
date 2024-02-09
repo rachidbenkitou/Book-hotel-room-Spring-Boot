@@ -64,4 +64,13 @@ public class RoomController {
         return new ResponseEntity<>(roomService.deleteRoom(id), HttpStatus.OK);
     }
 
+    @GetMapping("countRoomsByHotelIdAndRoomTypeId/{hotelId}/{roomTypeId}")
+    public ResponseEntity<Long> countRoomsByHotelIdAndRoomTypeId(@PathVariable(name = "hotelId") Long hotelId, @PathVariable(name = "roomTypeId") Long roomTypeId) throws EntityNotFoundException {
+        return new ResponseEntity<>(roomService.countRoomsByTypeAndHotelId(hotelId, roomTypeId), HttpStatus.OK);
+    }
+
+    @GetMapping("countRoomsByHotelId/{hotelId}")
+    public ResponseEntity<Long> countRoomsByHotelId(@PathVariable(name = "hotelId") Long hotelId) throws EntityNotFoundException {
+        return new ResponseEntity<>(roomService.countRoomsHotelId(hotelId), HttpStatus.OK);
+    }
 }

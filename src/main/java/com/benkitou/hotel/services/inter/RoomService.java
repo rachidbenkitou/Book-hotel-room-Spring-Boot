@@ -20,4 +20,8 @@ public interface RoomService {
     RoomDto updateRoom(Long id, RoomDto roomDto) throws EntityNotFoundException, EntityAlreadyExistsException;
 
     ResponseDto deleteRoom(Long id) throws EntityAlreadyExistsException, EntityNotFoundException;
+
+    Long countRoomsByTypeAndHotelId(Long hotelId, Long roomTypeId);
+
+    Long countRoomsHotelId(Long hotelId);
 }
