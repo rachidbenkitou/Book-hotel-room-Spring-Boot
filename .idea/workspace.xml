@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef00b11d-9df4-46bb-993c-91e936ec16e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices-hotel-management/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Class Diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/HotelApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/config/DataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/config/FlickrConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/BlackListClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/BookingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/CityController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/ClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/DiscountController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/HotelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/HotelDemandController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/HotelOwnerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/PhoneNumbersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/RoomController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/RoomTypeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/BlackListClientCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/BookingCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/CityCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/ClientCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/DiscountCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/EmailCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/HotelCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/HotelOwnerCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/PersonCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/PhoneNumberCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/criteria/RoomCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/BlackListClientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/BookingRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/BookingStatusRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/CityRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/ClientRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/DiscountRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/EmailRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/HotelDemandRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/HotelOwnerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/HotelRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/ImageDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/PhoneNumberRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/RoomBookingRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/RoomRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/RoomTypeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/specifications/DiscountSpecification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/daos/specifications/RoomSpecification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/BlackListClientDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/CityDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/ClientDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/DiscountDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/EmailDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/HotelDemandDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/HotelDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/HotelOwnerDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/ImageDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/PersonDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/PhoneNumberDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/ResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/RoomDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/RoomTypeDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/bookingdtos/BookingDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/bookingdtos/BookingRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/bookingdtos/BookingSumPricePerYearDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/dtos/bookingdtos/RoomBookingRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/BlacklistClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Booking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/BookingStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/City.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Discount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Email.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Hotel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/HotelDemand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/HotelOwner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/PhoneNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/RoomBooking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/entities/RoomType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/exceptions/EntityAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/exceptions/EntityNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/exceptions/EntityServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/factory/ClientCriteriaFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/factory/HotelOwnerCriteriaFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/handlers/GlobalExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/BlackListClientMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/BookingMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/CityMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/ClientMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/DiscountMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/EmailMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/HotelDemandMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/HotelMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/HotelOwnerMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/ImageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/PhoneNumbersMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/RoomMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/mappers/RoomTypeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/BlackListClientServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/BookingServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/CityServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/ClientServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/DiscountServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/EmailServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/FlickrServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/HotelDemandServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/HotelOwnerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/HotelServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/ImageServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/PhoneNumbersServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/RoomServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/RoomTypeServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/BlackListClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/BookingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/CityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/ClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/DiscountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/FlickrService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/HotelDemandService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/HotelOwnerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/HotelService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/ImageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/PhoneNumbersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/RoomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/inter/RoomTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/HotelImageStrategyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/RoomImageStrategyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/inter/HotelImageStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/inter/RoomImageStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/inter/images/ImageDeletionStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/inter/images/ImageUploadingStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/services/strategy/inter/images/ImagesUploadingStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/utils/BookingStatusIds.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/utils/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/utils/DateManipulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/utils/FilesOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/benkitou/hotel/utils/FormatDateTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/benkitou/hotel/HotelApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/benkitou/hotel/UnitTestingPracticeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/benkitou/hotel/services/BookingServiceImplTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2ZlsbgNvlfXSWIJhwpwlMYIgwg3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/PC/Desktop/Projects/7-microservices/1-hotel-reservation-management/hotel-management",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "spring.configuration.checksum": "e919c49d5f0cd737285367810a3394d0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.benkitou.hotel.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\Desktop\Projects\2-hotelRoomReservation\Book-hotel-room-Spring-Boot\src\main\java\com\benkitou\hotel\services\inter" />
+      <recent name="C:\Users\PC\Desktop\Projects\2-hotelRoomReservation\Book-hotel-room-Spring-Boot\src\main\java\com\benkitou\hotel\services" />
+      <recent name="C:\Users\PC\Desktop\Projects\2-hotelRoomReservation\Book-hotel-room-Spring-Boot\src\main\java\com\benkitou\hotel" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.benkitou.hotel.services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.HotelApplication">
+    <configuration name="BookingServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitou.hotel.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.benkitou.hotel.services" />
+      <option name="MAIN_CLASS_NAME" value="com.benkitou.hotel.services.BookingServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceImplTest.testMakeBookingBookingStatusDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitou.hotel.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.benkitou.hotel.services" />
+      <option name="MAIN_CLASS_NAME" value="com.benkitou.hotel.services.BookingServiceImplTest" />
+      <option name="METHOD_NAME" value="testMakeBookingBookingStatusDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceImplTest.testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitou.hotel.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.benkitou.hotel.services" />
+      <option name="MAIN_CLASS_NAME" value="com.benkitou.hotel.services.BookingServiceImplTest" />
+      <option name="METHOD_NAME" value="testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceImplTest.testMakeBookingSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitou.hotel.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.benkitou.hotel.services" />
+      <option name="MAIN_CLASS_NAME" value="com.benkitou.hotel.services.BookingServiceImplTest" />
+      <option name="METHOD_NAME" value="testMakeBookingSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookingServiceImplTest.testMakeBookingThrowExceptionWhenEmptyRoomList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.benkitou.hotel.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.benkitou.hotel.services" />
+      <option name="MAIN_CLASS_NAME" value="com.benkitou.hotel.services.BookingServiceImplTest" />
+      <option name="METHOD_NAME" value="testMakeBookingThrowExceptionWhenEmptyRoomList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Book-hotel-room-Spring-Boot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Book-hotel-room-Spring-Boot" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="hotel" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.benkitou.hotel.HotelApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BookingServiceImplTest.testMakeBookingSuccess" />
+        <item itemvalue="JUnit.BookingServiceImplTest" />
+        <item itemvalue="JUnit.BookingServiceImplTest.testMakeBookingEntityNotFoundExceptionWhenBookingStatusDoesNotExist" />
+        <item itemvalue="JUnit.BookingServiceImplTest.testMakeBookingBookingStatusDoesNotExist" />
+        <item itemvalue="JUnit.BookingServiceImplTest.testMakeBookingThrowExceptionWhenEmptyRoomList" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef00b11d-9df4-46bb-993c-91e936ec16e3" name="Changes" comment="" />
+      <created>1703008074262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703008074262</updated>
+      <workItem from="1703008075506" duration="2962000" />
+      <workItem from="1703018393817" duration="3402000" />
+      <workItem from="1703085050686" duration="15862000" />
+      <workItem from="1703234776614" duration="685000" />
+      <workItem from="1703254116344" duration="6404000" />
+      <workItem from="1703276547494" duration="12350000" />
+      <workItem from="1703336057736" duration="1077000" />
+      <workItem from="1703342005814" duration="16835000" />
+      <workItem from="1703448996515" duration="13160000" />
+      <workItem from="1703527756354" duration="2767000" />
+      <workItem from="1703608299512" duration="7548000" />
+      <workItem from="1703628173378" duration="323000" />
+      <workItem from="1703634309781" duration="1938000" />
+      <workItem from="1703770476580" duration="19229000" />
+      <workItem from="1703869503629" duration="769000" />
+      <workItem from="1703873513177" duration="11593000" />
+      <workItem from="1703973302149" duration="7557000" />
+      <workItem from="1704021377503" duration="3594000" />
+      <workItem from="1704112222070" duration="4027000" />
+      <workItem from="1704191320160" duration="1340000" />
+      <workItem from="1704244823670" duration="707000" />
+      <workItem from="1704256679648" duration="660000" />
+      <workItem from="1704463156529" duration="635000" />
+      <workItem from="1704489771009" duration="1924000" />
+      <workItem from="1705010289593" duration="1228000" />
+      <workItem from="1705154094657" duration="5493000" />
+      <workItem from="1705359433897" duration="133000" />
+      <workItem from="1705533713283" duration="123000" />
+      <workItem from="1705534107222" duration="67000" />
+      <workItem from="1705535957721" duration="69000" />
+      <workItem from="1705688343182" duration="3000000" />
+      <workItem from="1705704921047" duration="1349000" />
+      <workItem from="1705823191646" duration="6378000" />
+      <workItem from="1705830298838" duration="356000" />
+      <workItem from="1705831420260" duration="802000" />
+      <workItem from="1705872776338" duration="47000" />
+      <workItem from="1705873440550" duration="678000" />
+      <workItem from="1705874237924" duration="2578000" />
+      <workItem from="1706041550659" duration="12444000" />
+      <workItem from="1706091730272" duration="5787000" />
+      <workItem from="1706097583747" duration="96000" />
+      <workItem from="1706183593192" duration="165000" />
+      <workItem from="1706203359605" duration="931000" />
+      <workItem from="1706355114596" duration="2817000" />
+      <workItem from="1706398023852" duration="54000" />
+      <workItem from="1706516253879" duration="594000" />
+      <workItem from="1706554429439" duration="815000" />
+      <workItem from="1706610204264" duration="139000" />
+      <workItem from="1706616190878" duration="26000" />
+      <workItem from="1707136324182" duration="280000" />
+      <workItem from="1707136947102" duration="184000" />
+      <workItem from="1707238408740" duration="3260000" />
+      <workItem from="1707274116365" duration="1302000" />
+      <workItem from="1707308014546" duration="594000" />
+      <workItem from="1707339576966" duration="1452000" />
+      <workItem from="1707386155293" duration="3900000" />
+      <workItem from="1707426337671" duration="1300000" />
+      <workItem from="1707435427789" duration="462000" />
+      <workItem from="1707501803585" duration="6044000" />
+      <workItem from="1707515515906" duration="234000" />
+      <workItem from="1707559057549" duration="172000" />
+      <workItem from="1707601951536" duration="634000" />
+      <workItem from="1707689570633" duration="3163000" />
+      <workItem from="1707696904730" duration="69000" />
+      <workItem from="1707779097663" duration="3920000" />
+      <workItem from="1707862697843" duration="837000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/benkitou/hotel/controller/BlackListClientController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
