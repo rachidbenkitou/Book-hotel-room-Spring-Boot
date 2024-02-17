@@ -8,7 +8,9 @@ Create mysql docker container
 
 default user: root
 
-docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=rachid123 -d -p 3306:3306 -v C:/docker/volumes/mysql/databases/restaurantdb:/var/lib/mysql  mysql:latest
+docker volume create --driver local --opt type=none --opt o=bind --opt device=C:/docker/volumes/mysql/databases/restaurantdb hotel-roo-reservation-mysql-db
+
+docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=rachid123 -d -p 3306:3306 --mount source=hotel-room-reservation-mysql-db,target=/var/lib/mysql mysql:latest
 
 
 Connect to BD
