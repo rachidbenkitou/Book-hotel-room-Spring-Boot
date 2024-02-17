@@ -1,0 +1,22 @@
+Create postgres docker container
+
+default user: postgres
+
+docker run --name postgres_container -e POSTGRES_PASSWORD=rachid123 -d -p 5432:5432 -v C:/docker/volumes/postgres/databases/restaurantdb:/var/lib/postgres/data postgres:latest
+
+Create mysql docker container
+
+default user: root
+
+docker run --name mysql_container -e MYSQL_ROOT_PASSWORD=rachid123 -d -p 3306:3306 -v C:/docker/volumes/mysql/databases/restaurantdb:/var/lib/mysql  mysql:latest
+
+
+Connect to BD
+
+docker exec -it postgres_container psql -U userName
+
+\l : show databases
+\c : databaseName
+\dt : show tables
+
+SELECT * FROM "User";
