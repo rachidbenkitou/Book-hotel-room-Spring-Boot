@@ -7,6 +7,7 @@ const {orderRouter} = require("./project/routes/order.routes");
 const {productOrderRouter} = require("./project/routes/productOrder.routes");
 const {categoryRouter} = require("./project/routes/category.routes");
 const cors = require("cors");
+const Eureka = require('eureka-js-client').Eureka;
 
 
 dotenv.config(); // Load environment variables from a .env file if present
@@ -41,5 +42,30 @@ app.use("/api/v1/categories", categoryRouter);
 
 // Error Handling
 app.use(errorHandler);
+
+
+const eurekaClient = new Eureka({
+  instance: {
+    app: 'hotel-restuarant-service',
+    hostName: 'localhost',
+    ipAddr: '127.0.0.1',  
+    port: {
+      '$': 3000,   
+      '@enabled': 'true',
+    },
+    vipAddress: 'hotel-restuarant-service',
+    dataCenterInfo: {
+      '@class': 'com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo',
+      name: 'MyOwn',
+    },
+  }, 
+  eureka: {
+    host: 'localhost',     
+    port: 8761,          
+    servicePath: '/eureka/apps/',
+  },
+});
+
+eurekaClient.start();
 
 app.listen(port, () => console.log(`App listening on port ${port}`));
